@@ -1,6 +1,6 @@
 # MEAN Stack
 
-Code for the MEAN Soup to Bits
+Code for the MEAN stack
 
 * MongoDB
 * Express
