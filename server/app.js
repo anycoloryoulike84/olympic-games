@@ -3,6 +3,8 @@
 
 var express = require("express");
 var app = express();
+var mongoUtil = require("./mongoUtil");
+mongoUtil.connect();
 
 app.use(express.static(__dirname + '/../client'));
 
