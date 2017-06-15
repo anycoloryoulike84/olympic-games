@@ -4,6 +4,8 @@ var angular = require("angular");
 
 angular.module("olympics", []).controller('sportsController', function () {
 	this.sports = ["weightlifting", "cycling", "booooo", "bshgdjsfj"];
+}).controller('titleController', function () {
+	this.title = "Olympic Games";
 });
 
 },{"angular":3}],2:[function(require,module,exports){
