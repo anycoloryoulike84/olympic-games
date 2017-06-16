@@ -3,7 +3,7 @@
   <div class="row primary">
     <ul>
       <li ng-repeat="sport in sportsCtrl.sports">
-      	<a ui-sref='sports.medals'>{{sport}}</a>
+      	<a ui-sref='sports.medals({sportName:sport})'>{{sport}}</a>
       </li>
     </ul>
   </div>

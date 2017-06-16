@@ -8,14 +8,14 @@ require('angular-ui-router');
 // Or is it ui.router??
 angular.module("olympics", ['ui.router'])
 .config( ($stateProvider, $urlRouterProvider ) => {
-	// On page load, 'otherwise' means, go straight to /sports
+	// On page load, 'otherwise' means, go straight to /sports.
 	$urlRouterProvider.otherwise('/sports')
 	// This is where all states will be defined
 	$stateProvider
 	.state('sports', {
 		url:'/sports',
 		templateUrl:'sports/sports-nav.html',
-		// Resolve prevents loading of curly braces:
+		// Resolve waits for data to load before loading template:
 		resolve: {
 			sportsService: function($http) {
 			return $http.get('/sports');
@@ -29,6 +29,42 @@ angular.module("olympics", ['ui.router'])
 	})
 	.state('sports.medals', {
 		url: '/:sportName',
-		templateUrl: 'sports/sports-medals.html'
+		templateUrl: 'sports/sports-medals.html',
+		resolve: {
+			// $q is an angular promise substitute
+			sportService: function($q) {
+				return $q( (resolve, reject) => {
+					var sport =  {
+					    "name": "Cycling",
+					    "goldMedals": [
+					      { "division": "Men's Sprint", "country": "UK", "year": 2012 },
+					      { "division": "Women's Sprint", "country": "Australia", "year": 2012 }
+					    ]
+					  };
+					resolve({data:sport});
+				})
+			}
+		},
+		controller: function(sportService) {
+			this.sport = sportService.data;
+		},
+		controllerAs: 'sportCtrl'
 	})
 })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
