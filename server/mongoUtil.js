@@ -13,7 +13,7 @@ module.exports = {
 		process.exit(1);
 	}
 	_db = db;
-	console.log("\n Connected to Mongo, Server running \n");
+	console.log("\n Connected to Mongo \n");
 	});	
    },
    sports(){
