@@ -31,18 +31,9 @@ angular.module("olympics", ['ui.router'])
 		url: '/:sportName',
 		templateUrl: 'sports/sports-medals.html',
 		resolve: {
-			// $q is an angular promise substitute
-			sportService: function($q) {
-				return $q( (resolve, reject) => {
-					var sport =  {
-					    "name": "Cycling",
-					    "goldMedals": [
-					      { "division": "Men's Sprint", "country": "UK", "year": 2012 },
-					      { "division": "Women's Sprint", "country": "Australia", "year": 2012 }
-					    ]
-					  };
-					resolve({data:sport});
-				})
+			// Create route that draws real Data from Endpoint
+			sportService: function($http, $stateParams) {
+				return $http.get(`/sports/${$stateParams.sportName}`)
 			}
 		},
 		controller: function(sportService) {

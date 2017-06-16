@@ -14,9 +14,11 @@ module.exports = {
 	}
 	_db = db;
 	console.log("\n Connected to Mongo \n");
-	});	
+	});
    },
    sports(){
    		return _db.collection("sports");
    }
 }
+
+// Remember to restart Mongo whenever we make a change in Endpoints
