@@ -9,7 +9,7 @@ module.exports = {
 	connect() {
 		client.connect('mongodb://localhost:27017/olympics-dev', (err, db) => {
 	 if (err) {  
-	 	console.log("\n Error connecting to mongod \n");
+	 	console.log("\n !Error! connecting to Mongo \n");
 		process.exit(1);
 	}
 	_db = db;
