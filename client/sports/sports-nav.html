@@ -1,7 +1,13 @@
+
 <div class="container">
   <div class="row primary">
-    <ul ng-controller="sportsController as sportsCtrl">
-      <li ng-repeat="sport in sportsCtrl.sports">{{sport}}</li>
+    <ul>
+      <li ng-repeat="sport in sportsCtrl.sports">
+      	<a ui-sref='sports.medals'>{{sport}}</a>
+      </li>
     </ul>
   </div>
 </div>
+
+
+<div ui-view></div>

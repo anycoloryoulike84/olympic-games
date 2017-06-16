@@ -5,21 +5,29 @@ var angular = require("angular");
 // require module from package.json, include this one? or @uirouter/angularjs 
 require('angular-ui-router');
 
-// declare module dependency in brackets - if this doesn't work, it's because of package.json dev-dependencies; @uirouter/angularjs vs angular-ui-router
+// Declare module dependency in brackets - if this doesn't work, it's because of package.json dev-dependencies; @uirouter/angularjs vs angular-ui-router
 // Or is it ui.router??
 angular.module("olympics", ['ui.router']).config(function ($stateProvider, $urlRouterProvider) {
-	$urlRouterProvider.otherwise('/sports');
-	$stateProvider.state('sports', {
+	// On page load, 'otherwise' means, go straight to /sports
+	$urlRouterProvider.otherwise('/sports'
+	// This is where all states will be defined
+	);$stateProvider.state('sports', {
 		url: '/sports',
-		templateUrl: 'sports/sports-nav.html'
-	});
-}).controller('titleController', function () {
-	this.title = "Olympic Games";
-}).controller('sportsController', function ($http) {
-	var _this = this;
-
-	$http.get('/sports').then(function (response) {
-		_this.sports = response.data;
+		templateUrl: 'sports/sports-nav.html',
+		// Resolve prevents loading of curly braces:
+		resolve: {
+			sportsService: function sportsService($http) {
+				return $http.get('/sports');
+			}
+		},
+		controller: function controller(sportsService) {
+			this.sports = sportsService.data;
+		},
+		// Specify the name of local controller:
+		controllerAs: 'sportsCtrl'
+	}).state('sports.medals', {
+		url: '/:sportName',
+		templateUrl: 'sports/sports-medals.html'
 	});
 });
 
