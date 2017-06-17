@@ -5,7 +5,12 @@ var app = express();
 var mongoUtil = require("./mongoUtil");
 mongoUtil.connect();
 
+// Require the bodyParser Middleware
+
 app.use(express.static(__dirname + '/../client'));
+
+var bodyParser = require('body-parser');
+var jsonParser = bodyParser.json();
 
 app.get("/sports", (request,response) => {
 	var sports = mongoUtil.sports();
@@ -24,7 +29,7 @@ app.get("/sports", (request,response) => {
 });
 
 // Add API endpoint for sports data, from Mongo data
-app.get("/sports/:name", (request,response) => {
+app.get("/sports/:name", (request, response) => {
 	// Return sportName from url as entered by user, and...
 	var sportName = request.params.name;
 	
@@ -39,8 +44,16 @@ app.get("/sports/:name", (request,response) => {
 	});
 });
 
-app.post('/sports/:name/medals', (request,response) => {
+app.post('/sports/:name/medals', jsonParser, (request, response) => {
+// Unlike .get, .post needs an additional middleware in order to be parsed
+// Body-parser parses the body of the payload that's sent by the client
+	var sportName = request.params.name;
+	var newMedal = request.body.medal;
 
+	console.log("Sport name: " + sportName );
+	console.log("Medal Name: " + JSON.stringify(newMedal) );
+	
+	response.sendStatus(201);
 });
 
 
