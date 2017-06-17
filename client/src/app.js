@@ -1,5 +1,4 @@
 
-
 var angular = require("angular");
 // require module from package.json, include this one? or @uirouter/angularjs 
 require('angular-ui-router');

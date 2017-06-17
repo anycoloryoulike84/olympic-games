@@ -13,7 +13,10 @@ var bodyParser = require('body-parser');
 var jsonParser = bodyParser.json();
 
 app.get("/sports", (request,response) => {
+
+	// Access mongoUtility and access the collection 'db.sports'
 	var sports = mongoUtil.sports();
+
 	sports.find().toArray((err,docs) => {
 		if (err) {
 			console.log(" Mongo failed on Server");
@@ -32,7 +35,8 @@ app.get("/sports", (request,response) => {
 app.get("/sports/:name", (request, response) => {
 	// Return sportName from url as entered by user, and...
 	var sportName = request.params.name;
-	
+
+	// Access mongoUtility and access the collection 'db.sports'
 	var sports = mongoUtil.sports();
 	sports.find({name: sportName}).limit(1).next( (err,doc) => {
 		if (err) {
@@ -48,23 +52,37 @@ app.post('/sports/:name/medals', jsonParser, (request, response) => {
 // Unlike .get, .post needs an additional middleware in order to be parsed
 // Body-parser parses the body of the payload that's sent by the client
 	var sportName = request.params.name;
-	var newMedal = request.body.medal;
+	var newMedal = request.body.medal || {};
+	// Validation for new medal in db.findOneAndUpdate:
+	if(!newMedal.division || !newMedal.year || !newMedal.country) {
+		response.sendStatus(400);
+	}
+	// Access mongoUtility and access the collection 'db.sports'
+	var sports = mongoUtil.sports();
+	var query = {name: sportName};
+	var update = {$push: {goldMedals: newMedal}};
 
-	console.log("Sport name: " + sportName );
-	console.log("Medal Name: " + JSON.stringify(newMedal) );
-	
-	response.sendStatus(201);
+	sports.findOneAndUpdate(query, update, (err,res) => {
+		if (err) {
+			response.sendStatus(400);
+			console.log("Mongo Failed on medal POST ");
+			
+		} else {
+		response.sendStatus(201);
+	    console.log("Sport name: " + sportName );
+		console.log("Medal Name: " + JSON.stringify(newMedal) );
+		
+		}
+	});
 });
+
 
 
 app.listen(8000, function(){
 console.log(" \n Server running, Listening on 8000 ");
 });
 
-
-
-
-
-
-
-
+// NOTES:
+// Changed localhost to 127.1.1 -- if I see error, change it back to localhost;
+// Test w Curl:
+// curl -iX POST -H "Content-Type: application/json" -d '{ "medal": {"division":"elite", "country":"elite","year":"elite" } }' localhost:8000/sports/Cycling/medals
