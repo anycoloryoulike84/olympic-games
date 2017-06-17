@@ -1,6 +1,5 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 
-
 var angular = require("angular");
 // require module from package.json, include this one? or @uirouter/angularjs 
 require('angular-ui-router');
@@ -40,12 +39,18 @@ angular.module("olympics", ['ui.router']).config(function ($stateProvider, $urlR
 	}).state('sports.new', {
 		url: '/:sportName/medal/new',
 		templateUrl: 'sports/new-medal.html',
-		controller: function controller($stateParams, $state) {
+		controller: function controller($stateParams, $state, $http) {
 			this.sportName = $stateParams.sportName;
 
 			this.saveMedal = function (medal) {
-				console.log("medal", medal);
-				$state.go('sports.medals', { sportName: $stateParams.sportName });
+				$http({
+					method: 'POST',
+					url: "/sports/" + $stateParams.sportName + "/medals",
+					data: { medal: medal }
+				}).then(function () {
+					$state.go('sports.medals', { sportName: $stateParams.sportName });
+					console.log("medal", medal);
+				});
 			};
 		},
 		controllerAs: 'newMedalCtrl'

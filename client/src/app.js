@@ -20,7 +20,7 @@ angular.module("olympics", ['ui.router'])
 			}
 		},
 		controller: function(sportsService) {
-				this.sports = sportsService.data
+			this.sports = sportsService.data
 		},
 		// Specify the name of local controller:
 		controllerAs: 'sportsCtrl'
@@ -42,12 +42,18 @@ angular.module("olympics", ['ui.router'])
 	.state('sports.new', {
 		url: '/:sportName/medal/new',
 		templateUrl: 'sports/new-medal.html',
-		controller: function($stateParams, $state) {
+		controller: function($stateParams, $state, $http) {
 			this.sportName = $stateParams.sportName;
 
 			this.saveMedal = function(medal){
-			console.log("medal", medal);
-			$state.go('sports.medals',{sportName: $stateParams.sportName});
+			$http({
+				method: 'POST',
+				url: `/sports/${$stateParams.sportName}/medals`,
+				data: {medal}
+			}).then(function(){
+				$state.go('sports.medals',{sportName: $stateParams.sportName});
+				console.log("medal", medal);
+			});
 			};
 		},
 		controllerAs: 'newMedalCtrl'
