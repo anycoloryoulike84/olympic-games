@@ -36,8 +36,12 @@ app.get("/sports/:name", (request,response) => {
 			console.log("Sport Doc: ", doc);
 			// Returning 'sport' object data:
 			response.json(doc);
-	})
-})
+	});
+});
+
+app.post('/sports/:name/medals', (request,response) => {
+
+});
 
 
 app.listen(8000, function(){

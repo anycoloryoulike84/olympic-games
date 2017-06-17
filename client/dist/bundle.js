@@ -5,8 +5,7 @@ var angular = require("angular");
 // require module from package.json, include this one? or @uirouter/angularjs 
 require('angular-ui-router');
 
-// Declare module dependency in brackets - if this doesn't work, it's because of package.json dev-dependencies; @uirouter/angularjs vs angular-ui-router
-// Or is it ui.router??
+// Declare module dependency in brackets
 angular.module("olympics", ['ui.router']).config(function ($stateProvider, $urlRouterProvider) {
 	// On page load, 'otherwise' means, go straight to /sports.
 	$urlRouterProvider.otherwise('/sports'
@@ -41,8 +40,13 @@ angular.module("olympics", ['ui.router']).config(function ($stateProvider, $urlR
 	}).state('sports.new', {
 		url: '/:sportName/medal/new',
 		templateUrl: 'sports/new-medal.html',
-		controller: function controller($stateParams) {
+		controller: function controller($stateParams, $state) {
 			this.sportName = $stateParams.sportName;
+
+			this.saveMedal = function (medal) {
+				console.log("medal", medal);
+				$state.go('sports.medals', { sportName: $stateParams.sportName });
+			};
 		},
 		controllerAs: 'newMedalCtrl'
 

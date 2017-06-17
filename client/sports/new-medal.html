@@ -1,28 +1,40 @@
 <hr>
 <div class="container">
-  <form class="form" name="newMedalForm"/>
+  <form class="form" name="newMedalForm"/ ng-submit="newMedalCtrl.saveMedal(medal)">
 
   <h3 class="mbm">New Medal for {{newMedalCtrl.sportName}}</h3>
 
   <div class="form-field">
     <label class="form-label" for="division">Division:</label>
-    <input class="form-input" id="division" />
+    <input class="form-input" id="division" required ng-model="medal.division"/>
   </div>
 
   <div class="form-field">
     <label class="form-label" for="country">Country:</label>
-    <input class="form-input" id="country" />
+    <input class="form-input" id="country" required ng-model="medal.country"/>
   </div>
 
   <div class="form-field">
     <label class="form-label" for="year">Year:</label>
-    <select class="form-select" id="year" >
+    <select class="form-select" id="year" required ng-model="medal.year">
       <option value="2012">2012</option>
       <option value="2016">2016</option>
     </select>
   </div>
 
   <input class="btn" type="submit" value="Submit" />
-
 </form>
+
+
+<!-- Confirm medal Entry:  -->
+<!-- 
+<div class="row">
+  <em><p>New {{newMedalCtrl.sportName}} Medal:</p></em>
+  <ul>
+    <li>Division: {{ medal.division }}</li>
+    <li>Country: {{ medal.country }}</li>
+    <li>Year: {{ medal.year }}</li>
+  </ul>
+</div> -->
+
 </div>
