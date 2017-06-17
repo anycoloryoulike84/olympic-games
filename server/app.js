@@ -37,17 +37,12 @@ app.get("/sports/:name", (request,response) => {
 			// Returning 'sport' object data:
 			response.json(doc);
 	})
-	
 })
 
 
 app.listen(8000, function(){
 console.log(" \n Server running, Listening on 8000 ");
 });
-
-
-
-
 
 
 
