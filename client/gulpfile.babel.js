@@ -1,6 +1,11 @@
 var gulp = require("gulp");
 var browserify = require("browserify");
 var source = require("vinyl-source-stream");
+var runSeq = require('run-sequence')
+
+gulp.task('heroku:production', function(){
+  runSeq('clean', 'build', 'minify')
+})
 
 gulp.task("default", ["transpile"]);
 
@@ -17,7 +22,6 @@ gulp.task("transpile", () => {
     .pipe(gulp.dest("dist"));
 
 });
-
 
 
 gulp.task("watch", ["transpile"], () => {
