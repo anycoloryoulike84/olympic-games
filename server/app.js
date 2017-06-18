@@ -3,9 +3,8 @@
 var express = require("express");
 var app = express();
 var mongoUtil = require("./mongoUtil");
-// mongoUtil.connect();
+mongoUtil.connect();
 
-mongoUtil.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/olympic-games');
 // Require the bodyParser Middleware
 
 app.use(express.static(__dirname + '/../client'));
