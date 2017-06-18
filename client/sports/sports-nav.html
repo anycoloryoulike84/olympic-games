@@ -23,8 +23,7 @@
           <h2 class="card-title">
 
             <a class="card-link card-link--{{ sport.toLowerCase() }}" 
-            ui-sref="sports.medals({ sportName: sport })"
-            ng-class="{ 'is-active': sportsCtrl.isActive(sport)}">
+            ui-sref="sports.medals({ sportName: sport })">
               {{ sport }}
             </a>
 

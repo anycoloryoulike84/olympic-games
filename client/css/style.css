@@ -131,12 +131,12 @@ a {
 }
 
 .card-link--cycling::after {
-  background-image: url('../images/icon-cycling.svg');
+  /*background-image: url('../images/icon-cycling.svg');*/
   width: 200px;
 }
 
 .card-link--weightlifting::after {
-  background-image: url('../images/icon-weightlifting.svg');
+  /*background-image: url('../images/icon-weightlifting.svg');*/
   width: 200px;
 }
 

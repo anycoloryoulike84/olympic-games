@@ -19,8 +19,22 @@ angular.module("olympics", ['ui.router'])
 			return $http.get('/sports');
 			}
 		},
-		controller: function(sportsService) {
-			this.sports = sportsService.data
+		controller: function(sportsService, $location) {
+			this.sports = sportsService.data;
+
+			this.isActive = function(sport) {
+
+		  var pathRegexp = /sports\/(\w+)/;
+          var match = pathRegexp.exec($location.path());
+          
+          if(match === null || match.length === 0) return false;
+          var selectedSportName = match[1];
+          // console.log('below', selectedSportName, sport)
+
+          return sport === selectedSportName;
+
+			};
+
 		},
 		// Specify the name of local controller:
 		controllerAs: 'sportsCtrl'
