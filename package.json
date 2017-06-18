@@ -8,7 +8,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "gulp watch --gulpfile client/gulpfile.babel.js",
     "start": "node server/app.js",
-    "postinstall": "bower install && gulp build-libs && gulp build"
+    "postinstall": "gulp build-libs && gulp build"
   },
   "repository": {
     "type": "git",
