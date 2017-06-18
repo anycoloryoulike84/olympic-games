@@ -7,7 +7,7 @@ var _db;
 
 module.exports = {
 	connect() {
-		client.connect('mongodb://localhost:27017/olympics-dev', (err, db) => {
+		client.connect('mongodb://heroku_n59wcpbj:ijmn97enc7ttpkuvef3mhnm6q1@ds129422.mlab.com:29422/heroku_n59wcpbj', (err, db) => {
 	 if (err) {  
 	 	console.log("\n !Error! connecting to Mongo \n");
 		process.exit(1);
@@ -22,3 +22,5 @@ module.exports = {
 }
 // Changed localhost to 127.1.1 -- if I see error, change it back to localhost;
 // Remember to restart Mongo whenever we make a change in Endpoints
+// MongoDB URI through mLab: 
+// mongodb://heroku_n59wcpbj:ijmn97enc7ttpkuvef3mhnm6q1@ds129422.mlab.com:29422/heroku_n59wcpbj
