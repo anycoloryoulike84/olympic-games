@@ -3,14 +3,6 @@
   "version": "1.0.0",
   "description": "app tracking olympic games results",
   "main": "server/app.js",
-  "scripts": {
-    "transpile-es2015": "babel src -d lib",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "watch": "gulp watch --gulpfile client/gulpfile.babel.js",
-    "build":"gulp",
-    "start": "node server/app.js",
-    "postinstall": "gulp default"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/anycoloryoulike84/olympic-games.git"
@@ -42,5 +34,12 @@
     "express": "^4.15.3",
     "mongodb": "^2.2.28",
     "nodemon": "^1.11.0"
+  },
+  "scripts": {
+    "transpile-es2015": "babel src -d lib",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "gulp watch --gulpfile client/gulpfile.babel.js",
+    "build":"gulp",
+    "start": "node server/app.js"
   }
 }
