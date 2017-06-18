@@ -26,3 +26,4 @@ module.exports = {
 // mongodb://heroku_n59wcpbj:ijmn97enc7ttpkuvef3mhnm6q1@ds129422.mlab.com:29422/heroku_n59wcpbj
 // heroku config:set PROD_MONGODB=mongodb://dbuser:dbpass@host1:port1,host2:port2/dbname
 // process.env.MONGOLAB_URI || 'mongodb://localhost/olympic-games'
+// mongodb://localhost:27017/olympics-dev

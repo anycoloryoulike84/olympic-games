@@ -5,8 +5,6 @@ var app = express();
 var mongoUtil = require("./mongoUtil");
 mongoUtil.connect();
 
-// mongoUtil.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/meals-development');
-
 // Require the bodyParser Middleware
 
 app.use(express.static(__dirname + '/../client'));
@@ -80,7 +78,7 @@ app.post('/sports/:name/medals', jsonParser, (request, response) => {
 
 
 
-app.listen(process.env.PORT || 5000, function(){
+app.listen(process.env.PORT || 8000, function(){
 console.log(" \n Server running, Listening on 8000 ");
 });
 
