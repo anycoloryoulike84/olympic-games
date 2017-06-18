@@ -80,7 +80,7 @@ app.post('/sports/:name/medals', jsonParser, (request, response) => {
 
 
 
-app.listen(8000, function(){
+app.listen(.listen(process.env.PORT || 8000), function(){
 console.log(" \n Server running, Listening on 8000 ");
 });
 
