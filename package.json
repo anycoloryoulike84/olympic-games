@@ -40,7 +40,6 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "gulp watch --gulpfile client/gulpfile.babel.js",
     "build":"gulp",
-    "start": "node server/app.js",
-    "postinstall": "gulp build"
+    "start": "node server/app.js" 
   }
 }
