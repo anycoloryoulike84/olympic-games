@@ -7,7 +7,9 @@
     "transpile-es2015": "babel src -d lib",
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "gulp watch --gulpfile client/gulpfile.babel.js",
-    "start": "nodemon server/app.js"
+    "build":"gulp",
+    "start": "node server/app.js",
+    "postinstall": "gulp default"
   },
   "repository": {
     "type": "git",
