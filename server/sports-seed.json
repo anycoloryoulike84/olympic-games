@@ -2,7 +2,7 @@
   {
     "name": "Cycling",
     "goldMedals": [
-      { "division": "Men's Sprint", "country": "UK", "year": 2012 },
+      { "division": "Men's Sprint", "country": "UK", "year": 2016 },
       { "division": "Women's Sprint", "country": "Australia", "year": 2012 }
     ]
   },
@@ -10,7 +10,14 @@
     "name": "Weightlifting",
     "goldMedals": [
       { "division": "Men's Heavyweight", "country": "Ukraine", "year": 2012 },
-      { "division": "Women's Heavyweight", "country": "Kazakhstan", "year": 2012 }
+      { "division": "Women's Heavyweight", "country": "Kazakhstan", "year": 2016 }
+    ]
+  },
+  {
+    "name": "Wrestling",
+    "goldMedals": [
+      { "division": "Men's Lightweight", "country": "USA", "year": 2012 },
+      { "division": "Women's Heavyweight", "country": "Japan", "year": 2016 }
     ]
   }
 ]
