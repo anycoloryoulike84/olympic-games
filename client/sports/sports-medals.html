@@ -1,12 +1,12 @@
 <hr>
 <div class="container">
-  <h3> {{sportCtrl.sport.name}} Gold Medals</h3>
+  <h3> {{sportCtrl.sport.name}} Beer Menu</h3>
 
 <table class="table">
   <thead>
-    <th>Year</th>
-    <th>Division</th>
-    <th>Country</th>
+    <th>Beer Type</th>
+    <th>Beer Name</th>
+    <th>Brewery</th>
   </thead>
   <tbody>
     <tr ng-repeat="medal in sportCtrl.sport.goldMedals">
@@ -17,6 +17,11 @@
   </tbody>
 </table>
 
-<a class="btn" ui-sref="sports.new({ sportName: sportCtrl.sport.name})">Create a New  {{sportCtrl.sport.name}} Medal here</a>
+<a class="btn mb-4" ui-sref="sports.new({ sportName: sportCtrl.sport.name})">Create a New {{sportCtrl.sport.name}} Beer here</a>
 
 </div>
+
+
+
+
+

@@ -32,12 +32,23 @@ body {
 }
 
 .jumbotron {
-	background-color: #2d3142;
+	
+  background: url(../img/6.jpeg);
+  border-radius: 0;
+  padding: 0
+}
+
+.jumbotron > .container {
+  padding: 5.2em;
+  width: 100%;
+  background-color: rgba(200,100,10,.6);
 }
 
 .jumbotron h1 {
-  font-size: 50px;
+  font-size: 4.25em;
   color: #e1e1e1;
+  text-align: center;
+  text-shadow:1px 1px 3px black;
 }
 
 h1, h2, h3,
@@ -57,20 +68,21 @@ a {
 -----------------------------------------------*/
 
 .btn {
-  background-color: #ef8354;
+  background-color: rgba(60,16,0,.8);
   border: 0;
   border-radius: 8px;
   color: white;
   display: inline-block;
   line-height: 2.5;
   padding: 0 40px;
-  transition: 0.2s ease-in-out;
+  transition: 0.3s ease-in-out;
 }
 
 .btn:active,
 .btn:focus,
 .btn:hover {
-  background-color: #d6774e;
+  background-color: rgba(60,66,0,.8);
+  color: #bfc0c0;
 }
 
 /*-----------------------------------------------
@@ -89,6 +101,8 @@ a {
 .card:focus,
 .card:hover {
   border-color: #808080;
+  text-decoration: none;
+
 }
 
 /* ----- States ----- */
@@ -96,12 +110,14 @@ a {
 /* Active */
 
 .card.is-active {
-  background-color: #2d3142;
+  background-color: rgba(60,66,0,.4);
   border-color: #2d3142;
+  text-decoration: none;
 }
 
 .card.is-active .card-link {
-  color: #ef8354;
+  color: rgba(60,16,0,.8);
+  text-decoration: none;
 }
 
 /* ----- Submodules ----- */
@@ -311,4 +327,15 @@ a {
 
 .mbl {
   margin-bottom: 40px;
+}
+
+
+body {
+  font-family: 'Sorts Mill Goudy', serif;
+
+}
+
+
+.navbar {
+background-color: rgba(60,66,0,.4);
 }

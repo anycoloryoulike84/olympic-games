@@ -2,23 +2,25 @@
 <div class="container">
   <form class="form" name="newMedalForm"/ ng-submit="newMedalCtrl.saveMedal(medal)">
 
-  <h3 class="mbm">New Medal for {{newMedalCtrl.sportName}}</h3>
+  <h3 class="mbm">New Beer for {{newMedalCtrl.sportName}}</h3>
 
   <div class="form-field">
-    <label class="form-label" for="division">Division:</label>
+    <label class="form-label" for="division">Beer Name:</label>
     <input class="form-input" id="division" required ng-model="medal.division"/>
   </div>
 
   <div class="form-field">
-    <label class="form-label" for="country">Country:</label>
+    <label class="form-label" for="country">Brewery:</label>
     <input class="form-input" id="country" required ng-model="medal.country"/>
   </div>
 
   <div class="form-field">
-    <label class="form-label" for="year">Year:</label>
+    <label class="form-label" for="year">Beer Type:</label>
     <select class="form-select" id="year" required ng-model="medal.year">
-      <option value="2012">2012</option>
-      <option value="2016">2016</option>
+      <option value="2012">IPA</option>
+      <option value="2016">Stout</option>
+      <option value="2016">Ale</option>
+      <option value="2016">Lager</option>
     </select>
   </div>
 

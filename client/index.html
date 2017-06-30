@@ -2,21 +2,250 @@
   <head>
     <title>Starter Project</title>
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=0">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.js" ></script>
+
+
+
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+
+
+
+    <link href="https://fonts.googleapis.com/css?family=Sorts+Mill+Goudy" rel="stylesheet">
+    
     <link rel="stylesheet" type="text/css" href="css/style.css">
     
   </head>
-  <body>
+
+
+
+
+  <body id="home-page" data-spy="scroll" data-target=".navbar">
   
+<nav class="navbar navbar-toggleable-md navbar-light bg-faded sticky-top" >
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" href="home-page">Beer The App</a>
+  <div class="collapse navbar-collapse" id="navbarText">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/home-page">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/featured-beers">Features</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/modal-button-ex">Beers</a>
+      </li>
+    </ul>
+    <span class="navbar-text">
+      Beer The App 2017. &#xA9 
+    </span>
+  </div>
+</nav>
+
+
+
+
+
+
+
   <div class="jumbotron">
     <div class="container" >
       <!-- <h1>{{titleCtrl.title}}</h1> -->
-      <h1 class="logo">Olympic Games</h1>
-    </div>
+      <h1 class="logo display-2">Beer The App</h1>
+    </div>    
   </div>
 
 <div ui-view></div>
 
+
+<hr>
+<br>
+
+
+<div class="container" id="featured-beers">
+  
+  <div class="row" id="featured-beers">
+      <div class="col-md-8">
+        <h2 class="display-5">Featured Beers:</h2>
+      </div>
+      <div class="col-md-4">
+        <h2 class=""></h2>
+      </div>
+
+    <div class="col-md-6 col-lg-4">
+          <div class="card">
+            <img class="card-img-top img-fluid img-rounded" src="img/1.jpg" alt="Card image cap">
+              <div class="card-block">
+                <h4 class="card-title"><span class="text-info lead"><br>Duchess</span></h4>
+                <p class="card-text">Flanders Red Ale style Sour beer brewed by Brouwerij. Balanced between the sweetness of cherry overtones and sour style</p>
+                <a href="#"  data-toggle="modal" data-target="#exampleModal" class="btn btn-primary">Take me to beer</a>
+              </div>
+          </div>
+    </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="card">
+            <img class="card-img-top img-fluid img-rounded" src="img/2.jpg" alt="Card image cap">
+              <div class="card-block">
+                <h4 class="card-title"><span class="text-info lead"><br>Pliny</span></h4>
+                <p class="card-text">American Double / Imperial IPA style beer brewed by Russian River Brewing Co.</p>
+                <a href="#"  data-toggle="modal" data-target="#exampleModal" class="btn btn-primary">Take me to beer</a>
+              </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="card">
+            <img class="card-img-top img-fluid img-rounded" src="img/3.jpg" alt="Card image cap">
+              <div class="card-block">
+                <h4 class="card-title"><span class="text-info lead"><br>Drakes Hefeweizen</span></h4>
+                <p class="card-text">Classic Bavarian style wheat beer with its refreshing light citrus from malted wheat.</p>
+                <a href="#"  data-toggle="modal" data-target="#exampleModal" class="btn btn-primary">Take me to beer</a>
+              </div>
+          </div>
+    </div>
+  
+  </div>
+
+
+
+
+</div>  
+
+<hr><br>
+
+
+
+<!-- Button trigger modal -->
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 mb-4" id="modal-button-ex">
+      <button type="button" class=" btn-outline-info " data-toggle="modal" data-target="#exampleModal">
+        Sign Up for our Mailing List
+    </button>
+
+    </div>
+  </div>
+</div>
+
+
+<!-- MODAL Window-->
+
+<div class="modal fade" id="exampleModal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header  bg-warning">
+        <h5 class="modal-title">UNDER CONSTRUCTION!</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+
+<div class="modal-body">
+        
+
+  <form>
+    <div class="form-group ">
+      <label for="name">Name:</label>
+      <input type="text" class="form-control" id="name" placeholder="name">
+    </div>
+    <div class="form-group">
+      <label for="mail">Email:</label>
+      <input type="email" class="form-control" id="mail" placeholder="email">
+    </div>
+    <div class="form-group">
+    <label for="select">Favorite Beer Style:</label>
+      <select type="select" class="form-control" placeholder="select">
+        <option value="full stack js developer">IPA</option>
+        <option value="front end developer">Ale</option>
+        <option value="back end developer">Hefeweizen</option>
+        <option value="designer">Stout</option>          
+        <option value="student">Sour</option>
+      </select>
+    </div>
+    <!-- Payement Info -->
+    <hr class="mb-2">
+    <h4 class="mt-2">Payment Info</h4>
+
+
+    <div class="row">
+  <div class="col-lg-6">
+    <label for="cc-num">Card Number:</label>
+    <input class="form-control" id="cc-num" type="text">
+  </div>
+
+  <div class="col-lg-3 ">
+    <label for="zip">Zip Code:</label>
+    <input class="form-control" id="zip" type="text">
+  </div>
+
+  <div class="col-lg-6 ">
+    <label for="cvv">CVV:</label>
+    <input class="form-control" id="cvv" type="text">
+  </div>
+</div>
+<div class="row mt-2">
+  <div class="col-lg-6 ">
+<label  for="cvv">Month Exp:</label>
+<select class="custom-select form-control" id="exp-month">
+  <option value="1">1 - January</option>
+  <option value="2">2 - February</option>
+  <option value="3">3 - March</option>
+  <option value="4">4 - April</option>
+  <option value="5">5 - May</option>
+  <option value="6">6 - June</option>
+  <option value="7">7 - July</option>
+  <option value="8">8 - August</option>
+  <option value="9">9 - September</option>
+  <option value="10">10 - October</option>
+  <option value="11">11 - November</option> 
+  <option value="12">12 - December</option>                           
+</select> 
+
+</div>
+<div class="col-lg-3 ">
+<label for="cvv">Year Exp:</label>
+<select class="custom-select" id="exp-year">
+  <option value="2016">2016</option>
+  <option value="2017">2017</option>
+  <option value="2018">2018</option>
+  <option value="2019">2019</option>
+  <option value="2020">2020</option>                          
+</select> 
+
+</div>
+</div>
+
+  </form>
+  <script type="text/javascript">
+  $("form").validate();
+  </script>
+</div>
+
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+
+
+
+
+
     <script src="dist/bundle.js"></script>
+    <script src="scripts.js"></script>
   </body>
 </html>
