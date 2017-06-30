@@ -12,7 +12,7 @@ app.use(express.static(__dirname + '/../client'));
 var bodyParser = require('body-parser');
 var jsonParser = bodyParser.json();
 
-app.get("/sports", (request,response) => {
+app.get("/sports/Kips", (request,response) => {
 
 	// Access mongoUtility and access the collection 'db.sports'
 	var sports = mongoUtil.sports();

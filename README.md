@@ -1,14 +1,15 @@
-# MEAN Stack - Olympics App
+## BEER THE APP:
 
-Code for the MEAN stack
+### A MEAN stack Application:
 
 * MongoDB
 * Express
 * Angular
 * Node
 
-## Developing:
+**Getting started:**
 
+## Developing:
 #### If forked:
 * `npm install` to resolve dependencies
 * `npm run watch` to start transpile watch. This command will read files under `client/src` 
