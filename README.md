@@ -2,6 +2,9 @@
 
 ### A MEAN stack Application:
 
+
+[Beer The App DEMO HERE](https://beer-the-app.herokuapp.com/#!/sports "Beer The App Homepage")
+
 * MongoDB
 * Express
 * Angular
